@@ -13,8 +13,11 @@
 
  document.addEventListener('change', function chooseLvl(e) {
 
-     if (e.target.classList.contains('select'))
+     if (e.target.classList.contains('select')) {
+
          customNums = Array.from(allNums.slice(0, e.target.value));
+
+     }
 
  })
 
@@ -25,8 +28,8 @@
          //put random nums 
          if (level.value != '.....' && quesNumber.value != '') {
 
-             this.remove()
-                 //  readonlyToggle();
+             this.remove();
+             //  readonlyToggle();
 
              createBox(quesNumber.value);
 
@@ -248,7 +251,7 @@
      })
  }
 
- //remove history from page and local storage
+ //remove history from page and local storage 
  let clearHistory = document.querySelector('.clear-history');
  if (clearHistory) {
      clearHistory.onclick = function() {
