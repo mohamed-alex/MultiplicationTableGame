@@ -266,7 +266,7 @@
          parentBox.classList.add("parent-box");
 
          let box = document.createElement('div');
-         box.classList.add("box", "rtl");
+         box.classList.add("box", "rtl", "shift");
 
 
          let firstP = document.createElement('p');
@@ -292,3 +292,51 @@
      }
 
  }
+
+ //change lang
+ let rtl = document.querySelectorAll('.shift');
+
+ class Translate {
+     constructor() {
+         document.getElementById('lang-btn').addEventListener('click', (e) => {
+             if (e.target.classList.contains('ar')) {
+
+                 this.translate('arabic');
+                 e.target.className = 'en'
+                 e.target.innerHTML = 'En'
+             } else if (e.target.classList.contains('en')) {
+
+                 this.translate('english');
+                 e.target.className = 'ar'
+                 e.target.innerHTML = 'Ar'
+
+             }
+         })
+         this.translate(localStorage.getItem('language'));
+     }
+     translate(lang) {
+         if (lang == 'arabic') {
+             document.getElementById('title').innerHTML = 'لـعـبة جـدول الـضـرب';
+             document.getElementById('name').innerHTML = 'أكتب أسمك';
+             document.getElementById('qu-num').innerHTML = 'أكتب عددالمسائل';
+             document.getElementById('game-lvl').innerHTML = 'أختار مستوى اللعبة';
+             start.innerHTML = 'أبدأ اللعبة';
+             finish.value = 'مراجعة';
+             document.querySelector('.history-link a').innerHTML = 'السجل';
+             rtl.forEach(ele => ele.classList.toggle('rtl'));
+         }
+         if (lang == 'english') {
+             document.getElementById('title').innerHTML = 'Multiplication Table Game';
+             document.getElementById('name').innerHTML = 'Write Your Name';
+             document.getElementById('qu-num').innerHTML = 'Write Number of Questions';
+             document.getElementById('game-lvl').innerHTML = 'Choose Game Level';
+             start.innerHTML = 'Start';
+             finish.value = 'Finish';
+             document.querySelector('.history-link a').innerHTML = 'History';
+             rtl.forEach(ele => ele.classList.toggle('rtl'));
+
+         }
+         localStorage.setItem('language', lang)
+     }
+ }
+ onload = new Translate();

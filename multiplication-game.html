@@ -16,35 +16,34 @@
 
 <body>
     <div class="container">
-        <h1>لـعـبة جـدول الـضـرب</h1>
-
-        <div class="player rtl">
-            <p>أكتب أسمك: </p>
+        <h1 id="title">لـعـبة جـدول الـضـرب</h1>
+        <div id="lang-btn" class="en">En</div>
+        <div class="player shift rtl">
+            <p id="name">أكتب أسمك: </p>
             <input type="text" class="player-name">
         </div>
-        <div class="ques-num-div rtl">
-            <p>أكتب عدد المسائل</p>
+        <div class="ques-num-div shift rtl">
+            <p id="qu-num">أكتب عددالمسائل</p>
             <input type="number" class="ques-num">
         </div>
-        <div class="choose-level">
-            <p>أختار مستوى اللعبة </p>
+        <div class="choose-level shift rtl">
+            <p id="game-lvl">أختار مستوى اللعبة </p>
             <select class="select">
-            <option>.....</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>10</option>
-            <option>11</option>
-          
-        </select>
+                <option>.....</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+            </select>
         </div>
-        <div class="start">أبدأ اللعبة</div>
+        <div class="start" id="start">أبدأ اللعبة</div>
         <div class="game">
             <div class="sec"></div>
         </div>
@@ -52,11 +51,11 @@
         <form action="">
             <input class="end" type="submit" value="مراجعة">
         </form>
-        <div class="history-link"><a href="history.html" target="_blank">History</a></div>
+        <div class="history-link"><a href="history.html" target="_blank">السجل</a></div>
     </div>
 
     </div>
-    <script src='js/js.js '></script>
+    <script src='js/js.js'></script>
 
 </body>
 
