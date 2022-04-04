@@ -207,7 +207,7 @@
 
  document.addEventListener('click', function(e) {
      if (e.target == document.querySelector('.play-again')) {
-         location.reload()
+         location.reload();
      }
 
  })
@@ -266,7 +266,8 @@
          parentBox.classList.add("parent-box");
 
          let box = document.createElement('div');
-         box.classList.add("box", "rtl", "shift");
+         box.classList.add("box", "shift");
+         localStorage.getItem('language') == 'arabic' ? box.classList.add('rtl') : '';
 
 
          let firstP = document.createElement('p');
@@ -289,28 +290,40 @@
          box.appendChild(answerInput);
          parentBox.appendChild(box)
          document.querySelector('.sec').appendChild(parentBox);
+
      }
 
  }
 
  //change lang
+ let lanBtn = document.getElementById('lang-btn');
+ if (localStorage.getItem('language') == 'arabic') {
+     lanBtn.innerHTML = 'En';
+     lanBtn.className = 'en';
+ } else {
+     lanBtn.innerHTML = 'Ar';
+     lanBtn.className = 'ar';
+ }
  let rtl = document.querySelectorAll('.shift');
 
  class Translate {
      constructor() {
-         document.getElementById('lang-btn').addEventListener('click', (e) => {
+         document.addEventListener('click', (e) => {
              if (e.target.classList.contains('ar')) {
 
                  this.translate('arabic');
-                 e.target.className = 'en'
-                 e.target.innerHTML = 'En'
+                 e.target.className = 'en';
+                 e.target.innerHTML = 'En';
+
+
              } else if (e.target.classList.contains('en')) {
 
                  this.translate('english');
-                 e.target.className = 'ar'
-                 e.target.innerHTML = 'Ar'
+                 e.target.className = 'ar';
+                 e.target.innerHTML = 'Ar';
 
              }
+
          })
          this.translate(localStorage.getItem('language'));
      }
@@ -323,7 +336,7 @@
              start.innerHTML = 'أبدأ اللعبة';
              finish.value = 'مراجعة';
              document.querySelector('.history-link a').innerHTML = 'السجل';
-             rtl.forEach(ele => ele.classList.toggle('rtl'));
+             rtl.forEach(ele => ele.classList.add('rtl'));
          }
          if (lang == 'english') {
              document.getElementById('title').innerHTML = 'Multiplication Table Game';
@@ -333,10 +346,10 @@
              start.innerHTML = 'Start';
              finish.value = 'Finish';
              document.querySelector('.history-link a').innerHTML = 'History';
-             rtl.forEach(ele => ele.classList.toggle('rtl'));
+             rtl.forEach(ele => ele.classList.remove('rtl'));
 
          }
          localStorage.setItem('language', lang)
      }
  }
- onload = new Translate();
+ let onload = new Translate();
