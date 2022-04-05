@@ -349,7 +349,7 @@
              rtl.forEach(ele => ele.classList.remove('rtl'));
 
          }
-         localStorage.setItem('language', lang)
+         localStorage.setItem('language', lang);
      }
  }
  let onload = new Translate();

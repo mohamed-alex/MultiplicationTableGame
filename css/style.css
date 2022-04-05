@@ -20,18 +20,27 @@
     position: relative;
 }
 
-#lang-btn {
-    position: absolute;
-    top: 20px;
-    left: 30px;
+.header {
+    display: grid;
+    grid-template-columns: 10% 76%;
+    justify-items: center;
+    align-items: center;
+    line-height: 1.7;
+    grid-column-gap: 1%;
+}
+
+.header #lang-btn {
     background-color: var(--main-color--);
     color: #fff;
     padding: 5px 10px;
     cursor: pointer;
     border-radius: 10px;
+    height: 30px;
+    width: 30px;
+    text-align: center;
 }
 
-h1 {
+.header h1 {
     margin: auto;
     padding: 30px 20px;
     text-align: center;
